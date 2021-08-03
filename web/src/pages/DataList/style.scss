@@ -1,0 +1,172 @@
+.missions_list {
+  ul,
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-bottom: 50px;
+    margin-top: 10px;
+  }
+
+  $left-width: 39%;
+  $right-width: 59%;
+  $padding-lr: 7px;
+
+  .card {
+    position: relative;
+    padding-bottom: 15px;
+    padding-left: $padding-lr;
+    padding-right: $padding-lr;
+    height: 160px;
+    flex: 0 0 $left-width;
+    max-width: $left-width;
+  }
+
+  .card:nth-child(4n + 1),
+  .card:nth-child(4n + 4) {
+    flex: 0 0 $right-width;
+    max-width: $right-width;
+  }
+
+  .card:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .card:nth-child(even) {
+    padding-right: 0;
+  }
+
+  .card-content-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+  }
+
+  .card-content-container.open {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    padding: 40px 0;
+  }
+
+  .card-content {
+    position: relative;
+    border-radius: 5px;
+    background: #f1f1f1;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    &:hover {
+      background: #e0e0e0;
+    }
+  }
+
+  .open .card-content {
+    height: 70vh;
+    max-width: 700px;
+    overflow-y: scroll;
+    margin-top: 74px;
+    &:hover {
+      background: #f1f1f1;
+    }
+  }
+
+  .card-open-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  h2 {
+    color: rgb(43, 43, 43);
+    margin: 8px 0;
+  }
+
+  .category {
+    color: rgb(107, 107, 107);
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .overlay {
+    z-index: 1;
+    position: fixed;
+    background: #4a4a4a9f;
+    will-change: opacity;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    // max-width: 990px;
+    pointer-events: none;
+  }
+
+  p {
+    color: #2c2c2c;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .real-content {
+    padding: 15px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    $width: 48%;
+    .card {
+      flex: 0 0 $width;
+      max-width: $width;
+    }
+
+    .card:nth-child(4n + 1),
+    .card:nth-child(4n + 4) {
+      flex: 0 0 $width;
+      max-width: $width;
+    }
+
+    .open .card-content {
+      margin-top: 74px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .card {
+      flex: 1 0 100%;
+      max-width: 100%;
+      padding: 5px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .card:nth-child(4n + 1),
+    .card:nth-child(4n + 4) {
+      flex: 1 0 100%;
+      max-width: 100%;
+    }
+
+    .card-content-container.open {
+      margin-top: 36px;
+      padding: 0;
+    }
+
+    .open .card-content {
+      margin-top: 36px;
+    }
+  }
+}

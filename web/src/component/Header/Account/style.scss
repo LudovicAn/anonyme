@@ -1,0 +1,11 @@
+.main_connexion {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.5em;
+
+  width: 200px;
+  .block-field {
+    margin-bottom: 10px;
+  }
+}
